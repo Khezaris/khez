@@ -1,0 +1,25 @@
+/*:
+* @plugindesc AdvancedUI
+* @author Khezaris
+* @help
+*/
+
+(function() {
+
+var _Scene_menu_create = Scene_menu.prototype.create;
+Scene_menu.prototype.create = function(); {
+  _Scene_menu_create.call(this);
+/*
+  this._commandWindow
+  this._goldWindow
+  this._statusWindow*/
+
+  this._statusWindow.x = 0;
+  
+  this._commandWindow.x = this._statusWindow.width;
+  
+  this._goldWindow.x = this._statusWindow.width;
+  this._goldWindow.y = this._commandWindow.height;
+};
+
+})();
