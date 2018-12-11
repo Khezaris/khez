@@ -6,20 +6,36 @@
 
 (function() {
 
-var _Scene_menu_create = Scene_menu.prototype.create;
-Scene_menu.prototype.create = function(); {
-  _Scene_menu_create.call(this);
-/*
-  this._commandWindow
-  this._goldWindow
-  this._statusWindow*/
+  var _Scene_menu_create = Scene_menu.prototype.create;
+  Scene_menu.prototype.create = function(); {
+    _Scene_menu_create.call(this);
+  /*
+    this._commandWindow
+    this._goldWindow
+    this._statusWindow*/
 
-  this._statusWindow.x = 0;
+    this._statusWindow.x = 0;
   
-  this._commandWindow.x = this._statusWindow.width;
+    this._commandWindow.x = this._statusWindow.width;
   
-  this._goldWindow.x = this._statusWindow.width;
-  this._goldWindow.y = this._commandWindow.height;
-};
+    this._goldWindow.x = this._statusWindow.width;
+    this._goldWindow.y = this._commandWindow.height;
+  };
 
-})();
+  Window_MenuStatus.prototype.windowWidth = function() {
+    return Graphics.boxwidth - 240;
+  };
+  
+  Window_MenuStatus.prototype.windowHeight = function() {
+    return Graphics.boxheight / 2;
+  };
+  
+  Window_MenuStatus.prototype.numVisibleRows = function() {
+    return 2;
+  };
+  
+  Window_MenuStatus.prototype.maxCols = function() {
+    return 1;
+  };
+
+
